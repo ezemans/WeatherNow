@@ -1,0 +1,8 @@
+{
+	"name" : "weather",
+	"version":"0.0.1",
+	"scripts":{
+		"server": "http-server .",
+		"css" : "stylus -w -c css/style.styl --use nib"
+	}
+}
