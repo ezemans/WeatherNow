@@ -6,34 +6,97 @@ DarkGray=#454548;
 GrayLight=#fafafa;
 Gray=#f8f8f8;
 Pink=#ff4081;
+BackgroundGray=#fafafa;
 HeightMobile=100vh;
+shadowtext(a,b,c,d)
+   -webkit-text-shadow a b c d
+   -moz-text-shadow a b c d
+   text-shadow a b c d
+boxshadow(a,b,c,d)
+   -webkit-box-shadow a b c d
+   -moz-box-shadow a b c d
+   box-shadow a b c d
+border-radius(a)
+	-webkit-border-radius a
+	-moz-border-radius a
+	border-radius a
+html
+	font-size 100%
+h1,h2,h3, h4, h5, h6
+	font-weight normal 
+	margin 0
+	padding 0
 .TheWeater
 	display flex
 	display -webkit-flex
 	flex-direction column
 	justify-content space-between
 	color blue
-	border 1px solid @color
 	flex-wrap wrap
 	align-self baseline
-	padding 0
 	.WeatherToday
 		padding 0px
 		width 100%
-		border 1px solid Indigo
+		height 100vh
+		background-color BackgroundGray
 		.Image
-			background url('../img/clouds.jpg') no-repeat center center fixed
-			-webkit-background-size cover
-  			-moz-background-size cover
-  			-o-background-size cover
-  			background-size cover
+			background url('../img/clouds.jpg')
+			background-size cover
+			background-repeat no-repeat
 			width 100%
-			height 400px
+			display block
+			overflow auto
 	.WeatherMap
+		height HeightMobile
 	.WeatherNext
 		height HeightMobile
-		border 1px solid Indigo
 		box-sizing border-box
 		font-size 1rem
-
+		height 100vh
 	
+	
+.Temperature
+	padding-top 14.5em
+	li 
+		list-style-type none
+		color white
+		text-align right
+		line-height 4rem
+		display block
+		padding-top 0rem
+		padding-bottom 0rem
+		&.Degre
+			font-size 7rem
+			font-weight 300
+			margin-top 0
+			margin-bottom 0
+			shadowtext 1px 1px 2px #000
+		&.Humidity
+			font-size 1.64rem
+			font-weight 100
+			shadowtext 1px 1px 2px #000
+			padding-right 1rem
+.Container-Msj
+	display flex
+	flex-direction row-reverse
+	.Msj
+		font-size 1.18rem
+		color DarkGray
+		width 16.12rem
+		text-align right
+		padding-right 1rem
+		padding-top 2.37rem
+		padding-bottom 2.37rem
+.MyButton
+	display block
+	width 48px
+	height 48px
+	vertical-align middle
+	border-radius(50%)
+	padding 5px
+	text-decoration none
+	text-align center
+	overflow hidden
+	vertical-align baseline
+	background-color Pink
+	shadowbox 1px 1px 2px #000
