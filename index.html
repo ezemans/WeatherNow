@@ -10,30 +10,32 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+	<template id="MainTemplate">
 	<section class="TheWeater">
-		<section class="WeatherToday">
+		
+		<section class="WeatherToday" id="one">
 			<article>
+				
 				<div class="Image">
-					<ul class="Temperature">
-						<li class="Degrees">24°</li>
-						<li class="Humidity">Humidity:30</li>
+					<ul class="Temperature">		
+						<li class="Degrees" data-temp></li>
+						<li class="Humidity">Humidity:<span data-humidity></span></li>			
 					</ul>
 				</div>
+				
 				<div class="Container-Msj">
-					<p class="Msj">Now! The Sky is Clear in your place you can go out and enjoy</p>
+					<p class="Msj">Now! <span data-description></span> in <span data-zone></span>, <span data-action></span></p>
 
 				</div>
 				<div class="Container-Msj">
-					<a href="#" class="MyButton"><i class="material-icons md-light">timer</i></a>
-				</div>
-			
-			
+					<a href="#two" class="MyButton"><i class="material-icons md-light">timer</i></a>
+				</div>		
 			</article>
 		</section>
 		
-		<section class="WeatherNext">
+		<section class="WeatherNext" id="two">
 			<div class="Container-Msj Margen">
-					<a href="#" class="MyButton"><i class="material-icons md-light">keyboard_arrow_up</i></a>
+					<a href="#one" class="MyButton"><i class="material-icons md-light">keyboard_arrow_up</i></a>
 				</div>
 			<article class="Container-Time">
 				<ul>
@@ -51,6 +53,9 @@
 				<span class="author">Created by Ezemans</span>
 			</aside>
 		</section>
-	</section>	
+	</section>
+	</template>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script type="text/javascript" src="js/weather.js"></script>
 </body>
 </html>
