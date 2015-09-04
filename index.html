@@ -2,8 +2,11 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
 	<title>Weather</title>
 	<link href='https://fonts.googleapis.com/css?family=Roboto:100,500,300' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -12,7 +15,7 @@
 			<article>
 				<div class="Image">
 					<ul class="Temperature">
-						<li class="Degre">24°</li>
+						<li class="Degrees">24°</li>
 						<li class="Humidity">Humidity:30</li>
 					</ul>
 				</div>
@@ -21,30 +24,32 @@
 
 				</div>
 				<div class="Container-Msj">
-					<a href="#" class="MyButton">B</a>
+					<a href="#" class="MyButton"><i class="material-icons md-light">timer</i></a>
 				</div>
 			
 			
 			</article>
 		</section>
-		<section class="WeatherMap"> 
-			<article>
-				the map
-			</article>
-		</section>
-		<section class="WeatherNext"> 
-			<article>
+		
+		<section class="WeatherNext">
+			<div class="Container-Msj Margen">
+					<a href="#" class="MyButton"><i class="material-icons md-light">keyboard_arrow_up</i></a>
+				</div>
+			<article class="Container-Time">
 				<ul>
-					<li>24 at Morning</li>
-					<li>Sky is clear</li>
-					<li>24 at Morning</li>
-					<li>Sky is clear</li>
-					<li>24 at Morning</li>
-					<li>Sky is clear</li>
-					<li>24 at Morning</li>
-					<li>Sky is clear</li>
+					<li><span class="Time">24 at Morning</span></li>
+					<li><span class="State">Sky is clear</span></li>
+					<li><span class="Time">24 at Morning</span></li>
+					<li><span class="State">Sky is clear</span></li>
+					<li><span class="Time">24 at Morning</span></li>
+					<li><span class="State">Sky is clear</span></li>
+					<li><span class="Time">24 at Morning</span></li>
+					<li><span class="State">Sky is clear</span></li>
 				</ul>
 			</article>
+			<aside>
+				<span class="author">Created by Ezemans</span>
+			</aside>
 		</section>
 	</section>	
 </body>
