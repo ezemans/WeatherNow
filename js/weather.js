@@ -1,6 +1,7 @@
 (function(){
 	var myApi ="2594cebdc710b289da91b89819923d58";
 	var theUrl = "http://api.openweathermap.org/data/2.5/weather?&APPID="+myApi+"&";
+	var hourTemp ="http://api.openweathermap.org/data/2.5/forecast?&APPID="+myApi+"&";
 	var cityWeather = {}; //objeto
 	var body = $("body");
 	if(navigator.geolocation){
@@ -20,8 +21,15 @@
 	function getCoords(position){
 		var lat = position.coords.latitude;
 		var lon = position.coords.longitude;
-		$.getJSON(theUrl + "lat="+ lat +"&lon=" + lon, getCurrentWeather)
+		$.getJSON(theUrl + "lat="+ lat +"&lon=" + lon, getCurrentWeather);
+		$.getJSON(hourTemp + "lat="+ lat +"&lon=" + lon, getHourWeather)
 	}
+	var hourTemperature = {};
+	function getHourWeather(data){
+		hourTemperature.eve =data.dt_txt;
+	}
+
+
 	function getCurrentWeather(data){
 		cityWeather.temp = data.main.temp - 273.15;
 		cityWeather.descripcion = data.weather[0].description;
@@ -36,8 +44,8 @@
 		}else{
 			actions= "protect yourself! use solar protector!";
 		}
-
-		renderizartemplate()
+		getHourWeather();
+		renderizartemplate();
 	}
 	function activartemplate(id){
     var t = document.querySelector(id); //tomo el template
@@ -51,6 +59,9 @@
     clone.querySelector("[data-description]").innerHTML = cityWeather.descripcion;
     clone.querySelector("[data-zone]").innerHTML = cityWeather.zone;
     clone.querySelector("[data-action]").innerHTML = actions;
+    clone.querySelector("[data-night]").innerHTML = hourTemperature.eve;
     $(body).append(clone);
   }
+
+
 })();
