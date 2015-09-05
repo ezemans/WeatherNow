@@ -1,7 +1,9 @@
 (function(){
 	var myApi ="2594cebdc710b289da91b89819923d58";
 	var theUrl = "http://api.openweathermap.org/data/2.5/weather?&APPID="+myApi+"&";
-	var hourTemp ="http://api.openweathermap.org/data/2.5/forecast?&APPID="+myApi+"&";
+	
+	
+
 	var cityWeather = {}; //objeto
 	var body = $("body");
 	if(navigator.geolocation){
@@ -22,19 +24,20 @@
 		var lat = position.coords.latitude;
 		var lon = position.coords.longitude;
 		$.getJSON(theUrl + "lat="+ lat +"&lon=" + lon, getCurrentWeather);
-		$.getJSON(hourTemp + "lat="+ lat +"&lon=" + lon, getHourWeather)
-	}
-	var hourTemperature = {};
-	function getHourWeather(data){
-		hourTemperature.eve =data.dt_txt;
-	}
+		
 
+	}
 
 	function getCurrentWeather(data){
 		cityWeather.temp = data.main.temp - 273.15;
+		cityWeather.temp_min = data.main.temp_min - 273.15;
+		cityWeather.temp_max = data.main.temp_max - 273.15;
 		cityWeather.descripcion = data.weather[0].description;
 		cityWeather.zone = data.name;
 		cityWeather.humidity = data.main.humidity;
+		cityWeather.wind = data.wind.speed;
+		cityWeather.clouds = data.clouds.all;
+		cityWeather.wm = data.weather[0].main;
 		if(cityWeather.temp <= 13){
 			actions = "a cold day for go out, lets watch a movie!";
 		}else if(cityWeather.temp >= 14 && cityWeather.temp <= 26){
@@ -44,7 +47,6 @@
 		}else{
 			actions= "protect yourself! use solar protector!";
 		}
-		getHourWeather();
 		renderizartemplate();
 	}
 	function activartemplate(id){
@@ -55,11 +57,15 @@
   function renderizartemplate(){
     var clone = activartemplate("#MainTemplate");
     clone.querySelector("[data-temp]").innerHTML = cityWeather.temp;
+    clone.querySelector("[data-min]").innerHTML = cityWeather.temp_min;
+    clone.querySelector("[data-max]").innerHTML = cityWeather.temp_max;
     clone.querySelector("[data-humidity]").innerHTML = cityWeather.humidity;
     clone.querySelector("[data-description]").innerHTML = cityWeather.descripcion;
     clone.querySelector("[data-zone]").innerHTML = cityWeather.zone;
+    clone.querySelector("[data-wind]").innerHTML = cityWeather.wind;
+    clone.querySelector("[data-clouds]").innerHTML = cityWeather.clouds;
+    clone.querySelector("[data-wm]").innerHTML = cityWeather.wm;
     clone.querySelector("[data-action]").innerHTML = actions;
-    clone.querySelector("[data-night]").innerHTML = hourTemperature.eve;
     $(body).append(clone);
   }
 
