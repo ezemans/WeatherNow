@@ -13,6 +13,7 @@
       #street-view {
         height: 60vh;
         top: 0px;
+        border-bottom: 4px solid #CCC;
 
       }
       .gmnoprint, .gm-style-cc{
@@ -51,30 +52,35 @@
 			<article class="Container-More">
 
 				<ul>
+					<li><span class="More">Country</span></li>
+					<li><span class="State" data-country></span></li>
+					<li><span class="More">Weather Main</span></li>
+					<li><span class="State" data-wm></span></li>
 					<li><span class="More">Humidity</span></li>
 					<li><span class="State Percent" data-humidity></span></li>
+					<li><span class="More">Pressure</span></li>
+					<li><span class="State" data-pressure></span></li>
 					<li><span class="More">Wind Speed</span></li>
 					<li><span class="State M" data-wind></span></li>
 					<li><span class="More">Clouds</span></li>
 					<li><span class="State Percent" data-clouds></span></li>
-					<li><span class="More">Weather Main</span></li>
-					<li><span class="State" data-wm></span></li>
+					
 
 				</ul>
 			</article>
 			<div class="Container-Msj">
-					<a href="#one" class="MyButton"><i class="material-icons md-light">keyboard_arrow_up</i></a>
+					<a href="#street-view" class="MyButton"><i class="material-icons md-light">keyboard_arrow_up</i></a>
 				</div>
 			<aside>
 				<span class="author">Created by Ezemans</span>
 			</aside>
+
 		
 	</section>
 </template>
 </div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script type="text/javascript" src="js/weather.js"></script>
-	
    
 
 

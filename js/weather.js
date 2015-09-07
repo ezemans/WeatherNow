@@ -50,6 +50,8 @@ function initialize(lat,lon) {
 		cityWeather.temp_max = data.main.temp_max - 273.15;
 		cityWeather.descripcion = data.weather[0].description;
 		cityWeather.zone = data.name;
+		cityWeather.pressure = data.main.pressure;
+		cityWeather.country = data.sys.country
 		cityWeather.humidity = data.main.humidity;
 		cityWeather.wind = data.wind.speed;
 		cityWeather.clouds = data.clouds.all;
@@ -82,6 +84,8 @@ function initialize(lat,lon) {
     clone.querySelector("[data-clouds]").innerHTML = cityWeather.clouds;
     clone.querySelector("[data-wm]").innerHTML = cityWeather.wm;
     clone.querySelector("[data-action]").innerHTML = actions;
+    clone.querySelector("[data-country]").innerHTML = cityWeather.country;
+    clone.querySelector("[data-pressure]").innerHTML = cityWeather.pressure;
     $(body).append(clone);
   }
 
