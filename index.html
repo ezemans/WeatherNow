@@ -3,54 +3,29 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
-	<title>Weather</title>
+	<title>WeatherNow</title>
 	<link href='https://fonts.googleapis.com/css?family=Roboto:100,500,300' rel='stylesheet' type='text/css'>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
-	<link rel="stylesheet" href="css/style.css">
-	 <style>
-     
-      #street-view {
-        height: 60vh;
-        top: 0px;
-        border-bottom: 4px solid #CCC;
-
-      }
-      .gmnoprint, .gm-style-cc{
-      	display: none;
-      }
-    </style>
-	
-	 
+	<link rel="stylesheet" href="css/style.css">	 
 </head>
 <body>
 	<div id="street-view">
-	
-	
-		
-	<section class="TheWeater">
-		
+		<section class="TheWeater" id="TheTop">
 		<section class="WeatherToday" id="one">
 			<article>
-					<template id="MainTemplate">
+				<template id="MainTemplate">
 					<ul class="Temperature">
 						
 						<li class="Degrees D" data-temp></li>
 						<li class="MinMax">Min:<span class="D" data-min></span> | Max:<span class="D" data-max></span></li>	
 							
 					</ul>
-				
-				
 				<div class="Container-Msj">
 					<p class="Msj">Now! <span data-description></span> in <span data-zone></span>, <span data-action></span></p>
-
-				</div>
-					
-			</article>
-		
-			
+				</div>			
+			</article>		
 			<article class="Container-More">
-
 				<ul>
 					<li><span class="More">Country</span></li>
 					<li><span class="State" data-country></span></li>
@@ -64,31 +39,27 @@
 					<li><span class="State M" data-wind></span></li>
 					<li><span class="More">Clouds</span></li>
 					<li><span class="State Percent" data-clouds></span></li>
-					
-
 				</ul>
 			</article>
 			<div class="Container-Msj">
-					<a href="#street-view" class="MyButton"><i class="material-icons md-light">keyboard_arrow_up</i></a>
-				</div>
+				<a data-scroll href="#TheTop" class="MyButton"><i class="material-icons md-light">keyboard_arrow_up</i></a>
+				
+			</div>
+			
 			<aside>
-				<span class="author">Created by Ezemans</span>
-			</aside>
-
-		
-	</section>
-</template>
-</div>
+					<a href="http://twitter.com/ezemans" target="_blank" class="author">WeatherNow created by Ezemans</a>
+			</aside>		
+		</section>
+		</template>
+	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script type="text/javascript" src="js/weather.js"></script>
-   
-
-
-  
     <script async defer
          src="https://maps.googleapis.com/maps/api/js?signed_in=true&callback=initialize">
     </script>
-    
-    
+    <script src="js/smooth-scroll.min.js"></script>
+    <script>
+    smoothScroll.init();
+	</script>
 </body>
 </html>
