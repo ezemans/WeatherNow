@@ -8,35 +8,46 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
+	 <style>
+     
+      #street-view {
+        height: 60vh;
+        top: 0px;
+
+      }
+      .gmnoprint, .gm-style-cc{
+      	display: none;
+      }
+    </style>
+	
+	 
 </head>
 <body>
-	<template id="MainTemplate">
+	<div id="street-view">
+	
+	
+		
 	<section class="TheWeater">
 		
 		<section class="WeatherToday" id="one">
 			<article>
-				
-				<div class="Image">
-					<ul class="Temperature">		
+					<template id="MainTemplate">
+					<ul class="Temperature">
+						
 						<li class="Degrees D" data-temp></li>
-						<li class="MinMax">Min:<span class="D" data-min></span> | Max:<span class="D" data-max></span></li>		
+						<li class="MinMax">Min:<span class="D" data-min></span> | Max:<span class="D" data-max></span></li>	
+							
 					</ul>
-				</div>
+				
 				
 				<div class="Container-Msj">
 					<p class="Msj">Now! <span data-description></span> in <span data-zone></span>, <span data-action></span></p>
 
 				</div>
-				<div class="Container-Msj">
-					<a href="#two" class="MyButton"><i class="material-icons md-light">timer</i></a>
-				</div>		
+					
 			</article>
-		</section>
 		
-		<section class="WeatherNext" id="two">
-			<div class="Container-Msj Margen">
-					<a href="#one" class="MyButton"><i class="material-icons md-light">keyboard_arrow_up</i></a>
-				</div>
+			
 			<article class="Container-More">
 
 				<ul>
@@ -48,16 +59,30 @@
 					<li><span class="State Percent" data-clouds></span></li>
 					<li><span class="More">Weather Main</span></li>
 					<li><span class="State" data-wm></span></li>
+
 				</ul>
 			</article>
+			<div class="Container-Msj">
+					<a href="#one" class="MyButton"><i class="material-icons md-light">keyboard_arrow_up</i></a>
+				</div>
 			<aside>
 				<span class="author">Created by Ezemans</span>
 			</aside>
-		</section>
+		
 	</section>
-	</template>
+</template>
+</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script type="text/javascript" src="js/weather.js"></script>
+	
+   
 
+
+  
+    <script async defer
+         src="https://maps.googleapis.com/maps/api/js?signed_in=true&callback=initialize">
+    </script>
+    
+    
 </body>
 </html>

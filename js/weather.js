@@ -20,13 +20,29 @@
   		maximumAge        : 30000, 
   		timeout           : 27000
   	};
+  	var panorama;
 	function getCoords(position){
 		var lat = position.coords.latitude;
 		var lon = position.coords.longitude;
 		$.getJSON(theUrl + "lat="+ lat +"&lon=" + lon, getCurrentWeather);
-		
-
+		initialize(lat,lon);
 	}
+
+
+function initialize(lat,lon) {
+  panorama = new google.maps.StreetViewPanorama(
+      document.getElementById('street-view'),
+      {
+        position: {lat: lat, lng: lon},
+        pov: {heading: 165, pitch: 0},
+        linksControl: false,
+        panControl: false,
+        zoomControl: false,
+        creditsControl: false,
+        zoom: 1,
+        enableCloseButton: false
+      });
+}
 
 	function getCurrentWeather(data){
 		cityWeather.temp = data.main.temp - 273.15;
