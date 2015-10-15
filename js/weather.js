@@ -57,13 +57,13 @@ function initialize(lat,lon) {
 		cityWeather.clouds = data.clouds.all;
 		cityWeather.wm = data.weather[0].main;
 		if(cityWeather.temp <= 13){
-			actions = "a cold day for go out, lets watch a movie!";
+			actions = "It's a cold day to go out, lets watch a movie!";
 		}else if(cityWeather.temp >= 14 && cityWeather.temp <= 26){
-			actions = "is a nice day for make some sports!";
+			actions = "It's a good day for running!";
 		}else if(cityWeather.temp >= 27 && cityWeather.temp <= 35){
-			actions = "It's hot! lets go to swim and take a beer!";
+			actions = "It's a wonderful day to go out and play!";
 		}else{
-			actions= "protect yourself! use solar protector!";
+			actions= "Protect yourself! use solar protector!";
 		}
 		renderizartemplate();
 	}
